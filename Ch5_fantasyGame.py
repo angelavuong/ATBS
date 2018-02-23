@@ -14,8 +14,8 @@ def displayInventory(inventory):
 def addToInventory(inventory, addedItems):
     # your code goes here
     for i in range(len(addedItems)):
-        inv.setdefault(addedItems[i], 0)
-        inv[addedItems[i]] = inv[addedItems[i]] + 1
+        inv.setdefault(addedItems[i], 0) # Adds new items
+        inv[addedItems[i]] = inv[addedItems[i]] + 1 # Adding existing items
     return inv
 
 inv = addToInventory(inv, dragonLoot)
