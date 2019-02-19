@@ -1,15 +1,18 @@
 import re
 
-def passwordDetection():
-    # word_count = len(password)
-    # if(word_count) < 8:
-    #     Print("Error: your password must be 8 characters long!")
-    #     exit()
-    pass
+lengthRegex = re.compile(r'.{8,}')
+digitRegex = re.compile(r'\d+')
+capitalRegex = re.compile(r'[A-Z]+')
+lowerRegex = re.compile(r'[a-z]+')
 
+flag = False
+print('Please enter a password: ')
+user_input = raw_input()
 
-regex = re.compile(r'[a-zA-Z0-9_]')
-if (regex.search('aalaksjgljasa') == None):
-    print("Good password")
-else:
-    print "Bad password!"
+while (flag == False):
+    if(lengthRegex.search(user_input) and digitRegex.search(user_input) and capitalRegex.search(user_input) and lowerRegex.search(user_input) != None):
+        flag = True
+        print('Thank you. Your password has been saved successfully!')
+    else:
+        print("Bad password! Please re-enter a different password: ")
+        user_input = raw_input()
